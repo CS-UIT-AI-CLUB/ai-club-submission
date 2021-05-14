@@ -1,0 +1,53 @@
+version: '3'
+
+services:
+
+  frontend:
+    image: qscoreregistry.azurecr.io/qscore/frontend:latest
+    restart: always
+    ports:
+      - "3000:3000"
+
+  platform-engine1:
+    image: qscoreregistry.azurecr.io/qscore/platform-engine:latest
+    restart: always
+    volumes:
+      - ./storage:/storage
+    env_file:
+      - platform.env
+
+  platform-engine2:
+    image: qscoreregistry.azurecr.io/qscore/platform-engine:latest
+    restart: always
+    volumes:
+      - ./storage:/storage
+    env_file:
+      - platform.env
+
+  platform-engine3:
+    image: qscoreregistry.azurecr.io/qscore/platform-engine:latest
+    restart: always
+    volumes:
+      - ./storage:/storage
+    env_file:
+      - platform.env
+
+  platform-engine4:
+    image: qscoreregistry.azurecr.io/qscore/platform-engine:latest
+    restart: always
+    volumes:
+      - ./storage:/storage
+    env_file:
+      - platform.env
+
+  haproxy:
+    image: haproxy:1.8.20
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./haproxy:/usr/local/etc/haproxy:ro
+    links:
+      - platform-engine1
+      - platform-engine2
+      - platform-engine3
+      - platform-engine4

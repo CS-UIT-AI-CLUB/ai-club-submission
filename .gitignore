@@ -1,0 +1,21 @@
+# OS generated files #
+.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# IDE files
+.idea
+*.swp
+*.iml
+
+# Data
+data
+
+# Redis
+dump.rdb
+score-engine/src/scorers/*
+!score-engine/src/scorers/titanic
+!score-engine/src/scorers/__init__.py
+deployment/simple/postgres/data/pg_xlog/000000010000000000000002
+deployment/simple/postgres/data/pg_xlog/000000010000000000000001
