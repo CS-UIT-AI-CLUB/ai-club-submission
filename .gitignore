@@ -12,6 +12,10 @@ Thumbs.db
 # Data
 data
 
+# configs and env
+deployment/simple/*.conf
+deployment/simple/*.env
+
 # Redis
 dump.rdb
 score-engine/src/scorers/*
